@@ -1,0 +1,47 @@
+<body>
+  <section class="et-hero-tabs">
+    <app-intro-page></app-intro-page>
+    <div class="et-hero-tabs-container">
+      <!-- Updated onTabClick with event binding -->
+      <a class="et-hero-tab" href="#about_page" (click)="onTabClick($event)"
+        >About me</a
+      >
+      <a
+        class="et-hero-tab"
+        href="#experience_page"
+        (click)="onTabClick($event)"
+        >Experience</a
+      >
+      <a class="et-hero-tab" href="#projects_page" (click)="onTabClick($event)"
+        >Projects</a
+      >
+      <a class="et-hero-tab" href="#skills_page" (click)="onTabClick($event)"
+        >Skills</a
+      >
+      <a class="et-hero-tab" href="#contact_page" (click)="onTabClick($event)"
+        >Contact me ?</a
+      >
+
+      <span class="et-hero-tab-slider" #slider></span>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main class="et-main">
+    <section class="et-slide" id="about_page">
+      <app-about-page></app-about-page>
+    </section>
+    <section class="et-slide" id="experience_page">
+      <app-experience-page></app-experience-page>
+    </section>
+    <section class="et-slide" id="projects_page">
+      <app-projects-page></app-projects-page>
+    </section>
+    <section class="et-slide" id="skills_page">
+      <app-skills-page></app-skills-page>
+    </section>
+    <section class="et-slide" id="contact_page">
+      <app-contact-page></app-contact-page>
+    </section>
+  </main>
+</body>
