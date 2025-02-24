@@ -6,15 +6,10 @@ body {
 
 .et-hero-tabs,
 .et-slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   position: relative;
   background: #eee;
   text-align: center;
-  padding: 0 2em;
 }
 
 .et-hero-tabs-container {

@@ -1,43 +1,36 @@
-<p>
-  experience-page works! Lorem ipsum dolor sit amet consectetur adipisicing
-  elit. Dicta sed ratione, neque ducimus, odio sunt aperiam vitae laborum
-  aliquid perferendis quae tempore nostrum nesciunt cumque, adipisci atque
-  maiores modi facilis! Accusantium ullam eius laborum maxime suscipit ipsum rem
-  quod velit, aspernatur ipsa incidunt eos nostrum soluta eligendi debitis nobis
-  fugit, minus aliquam excepturi repellat labore asperiores dolore. Ratione ipsa
-  veniam sint temporibus maxime id perferendis, saepe, corrupti ad soluta
-  eligendi delectus neque? Nesciunt animi quis aut quo iure! Ab ipsum asperiores
-  dicta, autem nulla delectus consectetur distinctio fuga, accusantium fugit
-  impedit ipsa similique eum suscipit aliquam aperiam, a voluptatum iusto
-  consequatur ex incidunt laborum cupiditate praesentium! Aut temporibus culpa
-  fuga est eligendi ea delectus itaque vero, earum quas excepturi nobis placeat
-  laborum voluptatem sit corporis deserunt reprehenderit ex commodi illo odit
-  ipsam molestias aspernatur. Excepturi, perferendis! Nam fugiat ad optio
-  obcaecati perferendis molestiae assumenda vero itaque eius fuga dolorem ut
-  facere porro nisi quam eaque, totam animi libero illo voluptatem cumque
-  voluptatibus nostrum magni. Distinctio doloremque accusamus necessitatibus
-  quae! Ad suscipit qui aperiam tenetur dignissimos fuga esse illo, odit veniam
-  quod deserunt pariatur libero, minima in, nesciunt earum omnis labore!
-  Distinctio, est iure. Debitis libero dolorem officiis fuga dolore, ipsa, enim
-  dolorum dolores ullam quaerat fugit in, incidunt quam consectetur saepe
-  temporibus sequi hic blanditiis tempore laborum quis expedita ut amet
-  similique! Temporibus et animi quidem libero qui voluptate, minima aperiam,
-  modi accusamus harum doloremque? Consequuntur, sint facere? Modi officia fugit
-  delectus ut, veritatis dignissimos saepe. Ea vel commodi amet dolores
-  eligendi, nam beatae veritatis dicta sit enim quam, placeat accusantium nemo
-  perspiciatis similique quibusdam esse voluptatum minima autem unde. Quaerat
-  pariatur eos nam error, reprehenderit expedita nulla eum animi voluptas
-  laudantium dicta aperiam sed dignissimos accusantium est. Praesentium minima
-  id quaerat obcaecati. Quia cumque in ducimus, molestiae sint velit, odit
-  obcaecati architecto cum distinctio mollitia porro dolor rem fugiat temporibus
-  recusandae laborum nostrum enim dignissimos maiores dolores aspernatur
-  molestias perferendis! Iusto qui voluptatibus, excepturi velit quis deleniti
-  sapiente dolor perferendis animi id optio totam repudiandae et beatae harum,
-  saepe recusandae numquam? Repellat nesciunt quia est molestias, fugit
-  similique cumque nihil ipsam, voluptatibus recusandae facilis ullam natus
-  minus rerum! Tempora, debitis! Aspernatur, doloribus. Distinctio quibusdam
-  labore aspernatur architecto neque esse sequi itaque non nobis voluptas, vitae
-  doloremque, libero fuga tempore velit dolorem et. Vero earum mollitia sunt
-  aliquam necessitatibus rerum. Nostrum molestiae voluptatibus ipsam itaque est
-  consequatur culpa et!
-</p>
+<div class="container">
+  <!-- Left Section (Buttons) -->
+  <div class="sidebar">
+    <button class="company-button" (click)="setActiveContent('proclink')">
+      Proclink Consulting Services LLP
+    </button>
+    <!-- <button class="company-button" (click)="setActiveContent('microsoft')">
+      Microsoft
+    </button> -->
+  </div>
+
+  <!-- Right Section (Dynamic Content) -->
+  <div class="content">
+    @if(activeContent=='proclink') {
+    <div>
+      <p class="heading">
+        Graduate Engineer Trainee at <b>Proclink Consulting Services LLP</b>
+      </p>
+      <p>May 2024 - present</p>
+      <div class="company_experience">
+        <ul>
+          @for(point of proclink_experience; track point) {
+          <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    }
+    <!-- } @if(activeContent=='microsoft') {
+    <div>
+      <h2>Microsoft</h2>
+      <p>Developer</p>
+    </div>
+    } -->
+  </div>
+</div>

@@ -30,11 +30,11 @@ export class IntroPageComponent implements AfterViewInit {
             new Typed(this.roleElement.nativeElement, {
               strings: [
                 'MEAN Stack Developer',
-                'Automation Tester',
                 'UI Designer',
+                'Automation Tester',
               ],
-              typeSpeed: 70, // Smooth speed for typing
-              backSpeed: 30, // Slightly slower for a natural erase
+              typeSpeed: 25, // Smooth speed for typing
+              backSpeed: 25, // Slightly slower for a natural erase
               backDelay: 800, // More delay before erasing
               smartBackspace: true, // Avoids retyping the same text
               loop: true,
