@@ -1,1 +1,40 @@
-<div class="projects_con"></div>
+<div class="container">
+  <!-- Left Section (Buttons) -->
+  <div class="sidebar">
+    <div class="projects_header_con">
+      <img src="assets/projects_logo.png" />
+      <p>Projects</p>
+    </div>
+    <div>
+      <button class="projects_button" (click)="setActiveContent('courses')">
+        Courses Platform
+      </button>
+      <!-- <button class="projects_button" (click)="setActiveContent('microsoft')">
+      Microsoft
+    </button> -->
+    </div>
+  </div>
+
+  <!-- Right Section (Dynamic Content) -->
+  <div class="content">
+    @if(activeContent=='courses') {
+    <div>
+      <p class="heading">Online Courses Platform</p>
+      <p>May 2024 - present</p>
+      <div class="project_description">
+        <ul>
+          @for(point of project_description; track point) {
+          <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+    }
+    <!-- } @if(activeContent=='microsoft') {
+    <div>
+      <h2>Microsoft</h2>
+      <p>Developer</p>
+    </div>
+    } -->
+  </div>
+</div>
