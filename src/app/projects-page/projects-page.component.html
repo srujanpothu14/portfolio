@@ -5,13 +5,15 @@
       <img src="assets/projects_logo.png" />
       <p>Projects</p>
     </div>
-    <div>
+    <div class="project_titles_con">
       <button class="projects_button" (click)="setActiveContent('courses')">
         Courses Platform
+        <img src="assets/github_logo.png" alt="" />
       </button>
-      <!-- <button class="projects_button" (click)="setActiveContent('microsoft')">
-      Microsoft
-    </button> -->
+      <button class="projects_button" (click)="setActiveContent('todo')">
+        Todo Platform
+        <img src="assets/github_logo.png" alt="" />
+      </button>
     </div>
   </div>
 
@@ -29,12 +31,18 @@
         </ul>
       </div>
     </div>
-    }
-    <!-- } @if(activeContent=='microsoft') {
+    } @if(activeContent=='todo') {
     <div>
-      <h2>Microsoft</h2>
-      <p>Developer</p>
+      <p class="heading">Todo Platform</p>
+      <p>May 2024 - present</p>
+      <div class="project_description">
+        <ul>
+          @for(point of project_description; track point) {
+          <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
     </div>
-    } -->
+    }
   </div>
 </div>

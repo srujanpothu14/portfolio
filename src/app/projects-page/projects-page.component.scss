@@ -28,6 +28,11 @@
   font-weight: 200;
 }
 
+.project_titles_con {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 /* Buttons */
 .projects_button {
   background-color: #007bff;
@@ -40,6 +45,13 @@
   cursor: pointer;
   transition: 0.2s;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  img {
+    width: 25px;
+  }
 }
 
 .projects_button:hover {
