@@ -69,7 +69,7 @@ export class AppComponent {
       tabContainer.offsetHeight -
       this.tabContainerHeight;
 
-    if (window.scrollY > offset) {
+    if (window.scrollY + 12 > offset) {
       this.isSticky = true;
       this.renderer.addClass(
         this.el.nativeElement.querySelector('.et-hero-tabs-container'),
@@ -117,13 +117,16 @@ export class AppComponent {
   }
 
   setSliderCss() {
-    let width = 0;
-    let left = 0;
     if (this.currentTab) {
-      width = this.currentTab.offsetWidth;
-      left = this.currentTab.offsetLeft;
+      const tabWidth = this.currentTab.offsetWidth;
+      const tabLeft = this.currentTab.offsetLeft;
+      const sliderWidth = this.slider.nativeElement.offsetWidth;
+
+      // Calculate the center position
+      const left = tabLeft + tabWidth / 2 - sliderWidth / 2;
+
+      this.slider.nativeElement.style.left = `${left}px`;
+      this.slider.nativeElement.style.opacity = `1`;
     }
-    this.slider.nativeElement.style.width = `${width}px`;
-    this.slider.nativeElement.style.left = `${left}px`;
   }
 }
