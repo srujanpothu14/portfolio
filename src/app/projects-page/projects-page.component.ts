@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './projects-page.component.scss',
 })
 export class ProjectsPageComponent {
-  activeContent: string = 'courses'; // Default Content
+  activeContent: string = 'E-Learning'; // Default Content
   project_description: string[] = [
     'Developed and executed automated test scripts using Selenium and C# to ensure the reliability and efficiency of web applications, improving test coverage and reducing manual effort.',
     'Designed and maintained a robust test automation framework, streamlining the testing process and enhancing overall software quality.',

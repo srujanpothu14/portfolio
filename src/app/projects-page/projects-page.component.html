@@ -6,12 +6,12 @@
       <p>Projects</p>
     </div>
     <div class="project_titles_con">
-      <button class="projects_button" (click)="setActiveContent('courses')">
-        Courses Platform
+      <button class="projects_button" (click)="setActiveContent('E-Learning')">
+        E-Learning Platform
         <img src="assets/github_logo.png" alt="" />
       </button>
       <button class="projects_button" (click)="setActiveContent('todo')">
-        Todo Platform
+        Todo List Platform
         <img src="assets/github_logo.png" alt="" />
       </button>
     </div>
@@ -19,9 +19,9 @@
 
   <!-- Right Section (Dynamic Content) -->
   <div class="content">
-    @if(activeContent=='courses') {
+    @if(activeContent=='E-Learning') {
     <div>
-      <p class="heading">Online Courses Platform</p>
+      <p class="heading">E-LEarning Platform</p>
       <p>May 2024 - present</p>
       <div class="project_description">
         <ul>
@@ -33,7 +33,7 @@
     </div>
     } @if(activeContent=='todo') {
     <div>
-      <p class="heading">Todo Platform</p>
+      <p class="heading">Todo List Platform</p>
       <p>May 2024 - present</p>
       <div class="project_description">
         <ul>
