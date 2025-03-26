@@ -13,12 +13,12 @@
   width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  // gap: 15px;
 }
 
 h1 {
   color: #005aa7;
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin: 0;
   display: flex;
   justify-content: flex-start;
@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   white-space: nowrap;
   display: flex;
   justify-content: flex-start;
@@ -44,9 +44,9 @@ h2 {
   min-width: 250px; /* Keeps text placement constant */
 }
 
-.role_con {
-  height: 50px; /* Adjusted to ensure text is aligned properly */
-}
+// .role_con {
+//   height: 50px; /* Adjusted to ensure text is aligned properly */
+// }
 
 .social_link_icons {
   display: flex;
