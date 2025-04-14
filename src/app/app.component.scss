@@ -78,3 +78,21 @@ body {
     font-size: 1rem;
   }
 }
+@media (max-width: 480px) {
+  .et-hero-tabs,
+  .et-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .et-hero-tabs-container {
+    width: 90%;
+    height: 45px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    &--top {
+      top: 65px;
+    }
+  }
+}

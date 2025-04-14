@@ -82,29 +82,97 @@ h2 {
   }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .intro_page_con {
     flex-direction: column;
     text-align: center;
+    height: auto;
+    padding: 40px 20px;
   }
 
   .name_role_con {
-    width: 100%;
+    width: 80%;
     max-width: 500px;
   }
 
-  h1,
-  h2 {
+  h1 {
+    font-size: 2.5rem;
     justify-content: center;
   }
 
-  .social_link_icons {
+  h2 {
+    font-size: 1.8rem;
     justify-content: center;
+  }
+
+  .profile_img_con {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 768px) {
+  .intro_page_con {
+    gap: 20px;
+  }
+
+  .name_role_con {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 
   .profile_img_con {
     width: 250px;
     height: 250px;
+  }
+
+  .social_link_icons {
+    justify-content: center;
+  }
+}
+
+/* Extra Small Screens (below 480px) */
+@media (max-width: 480px) {
+  .intro_page_con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+  .profile_img_con {
+    border-radius: 50%;
+    width: 205px;
+    height: 205px;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin: 0px;
+  }
+
+  .profile_img_con {
+    width: 200px;
+    height: 200px;
+  }
+
+  .social_link_icons img {
+    width: 20px;
+    height: 20px;
   }
 }
