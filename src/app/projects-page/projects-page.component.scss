@@ -27,6 +27,9 @@
   font-size: 30px;
   font-weight: 200;
 }
+.projects_header_con_for_mobile {
+  display: none;
+}
 
 .project_titles_con {
   display: flex;
@@ -89,4 +92,37 @@ li {
   line-height: 1.6;
   color: #333;
   margin-bottom: 10px;
+}
+@media (max-width: 480px) {
+  .container {
+    height: auto;
+  }
+  .projects_header_con_for_mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 40px;
+      height: 35px;
+    }
+    font-size: 30px;
+    font-weight: 200;
+    p {
+      margin: 0px;
+    }
+  }
+  .project_description {
+    width: 85%;
+  }
+  .sidebar {
+    display: none;
+  }
+  .content {
+    width: 100%;
+  }
+  li {
+    font-size: 14px;
+  }
 }

@@ -87,12 +87,16 @@ body {
     align-items: center;
   }
   .et-hero-tabs-container {
-    width: 90%;
+    width: 96%;
     height: 45px;
     border-radius: 30px;
     margin-bottom: 22px;
     &--top {
       top: 30px;
     }
+  }
+  .et-hero-tab {
+    font-size: 11px;
+    letter-spacing: 0.04rem;
   }
 }
