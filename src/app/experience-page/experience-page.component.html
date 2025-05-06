@@ -1,46 +1,16 @@
-<div class="container">
-  <!-- Left Section (Buttons) -->
-  <div class="sidebar">
-    <div class="experience_header_con">
-      <img src="assets/experience_logo.png" />
-      <p>Experience</p>
-    </div>
-    <div>
-      <button class="company-button" (click)="setActiveContent('proclink')">
-        Proclink Consulting Services LLP
-      </button>
-      <!-- <button class="company-button" (click)="setActiveContent('microsoft')">
-      Microsoft
-    </button> -->
-    </div>
-  </div>
-
-  <!-- Right Section (Dynamic Content) -->
-  <div class="content">
-    <div class="experience_header_con_for_mobile">
-      <img src="assets/experience_logo.png" />
-      <p>Experience</p>
-    </div>
-    @if(activeContent=='proclink') {
-    <div>
-      <p class="heading">
-        Associate Software Engineer at <b>Proclink Consulting Services LLP</b>
-      </p>
-      <p>May 2024 - present</p>
-      <div class="company_experience">
-        <ul>
-          @for(point of proclink_experience; track point) {
-          <li>{{ point }}</li>
-          }
-        </ul>
+<div class="timeline-container">
+  <h2>Work Experience</h2>
+  <div class="timeline-line"></div>
+  <div class="timeline-cards">
+    @for(exp of experiences; track $index) {
+    <div class="experience-card">
+      <div class="card-content">
+        <h3>{{ exp.company }}</h3>
+        <h4>{{ exp.role }}</h4>
+        <p>{{ exp.duration }}</p>
+        <p>{{ exp.description }}</p>
       </div>
     </div>
     }
-    <!-- } @if(activeContent=='microsoft') {
-    <div>
-      <h2>Microsoft</h2>
-      <p>Developer</p>
-    </div>
-    } -->
   </div>
 </div>

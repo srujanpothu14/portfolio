@@ -1,56 +1,28 @@
-<div class="container">
-  <!-- Left Section (Buttons) -->
-  <div class="sidebar">
-    <div class="projects_header_con">
-      <img src="assets/projects_logo.png" />
-      <p>Projects</p>
-    </div>
-    <div class="project_titles_con">
-      <button class="projects_button" (click)="setActiveContent('E-Learning')">
-        E-Learning Platform
-        <a href="https://github.com/srujanpothu14/E-Learning" target="_blank">
-          <img src="assets/github_logo.png" alt=""
-        /></a>
-      </button>
-      <button class="projects_button" (click)="setActiveContent('todo')">
-        Todo List Platform
-        <a href="https://github.com/srujanpothu14/Todo_App" target="_blank">
-          <img src="assets/github_logo.png" alt=""
-        /></a>
-      </button>
-    </div>
-  </div>
-
-  <!-- Right Section (Dynamic Content) -->
-  <div class="content">
-    <div class="projects_header_con_for_mobile">
-      <img src="assets/projects_logo.png" />
-      <p>Projects</p>
-    </div>
-    @if(activeContent=='E-Learning') {
-    <div>
-      <p class="heading">E-Learning Platform</p>
-      <p>Angular, Node.js, Express.js, Amazon DynamoDB, S3 Bucket</p>
-      <div class="project_description">
-        <ul>
-          @for(point of project_description; track point) {
-          <li>{{ point }}</li>
-          }
-        </ul>
-      </div>
-    </div>
-    } @if(activeContent=='todo') {
-    <div>
-      <p class="heading">Todo List Platform</p>
-      <p>Angular, Node.js, Express.js, MongoDB</p>
-      <div class="project_description">
-        <ul>
-          @for(point of project_description; track point) {
-          <li>{{ point }}</li>
-          }
-        </ul>
+<section class="projects-section">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    @for(project of projects; track $index) {
+    <div class="project-card">
+      <img
+        [src]="project.image"
+        alt="{{ project.title }}"
+        class="project-img"
+      />
+      <div class="project-content">
+        <h3>{{ project.title }}</h3>
+        <div class="tech-stack">
+          @for (tech of project.tech; track $index) {<span>{{ tech }}</span
+          >}
+        </div>
+        <p>{{ project.description }}</p>
+        <div class="project-links">
+          <a [href]="project.live" target="_blank" class="btn">Live Demo</a>
+          <a [href]="project.github" target="_blank" class="btn btn-outline"
+            >GitHub</a
+          >
+        </div>
       </div>
     </div>
     }
   </div>
-</div>
+</section>

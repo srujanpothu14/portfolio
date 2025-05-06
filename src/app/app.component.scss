@@ -4,8 +4,12 @@ body {
   font-family: "Century Gothic", "Lato", sans-serif;
 }
 
-.et-hero-tabs,
 .et-slide {
+  position: relative;
+  background: #eee;
+  text-align: center;
+}
+.et-hero-tabs {
   position: relative;
   background: #eee;
   text-align: center;
@@ -25,7 +29,6 @@ body {
   z-index: 10;
   transition: position 0.3s ease;
   border-radius: 50px;
-
   &--top {
     position: fixed;
     top: 20px;
