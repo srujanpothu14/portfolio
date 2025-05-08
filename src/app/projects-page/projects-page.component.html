@@ -1,28 +1,30 @@
 <section class="projects-section">
-  <h2 class="section-title">Projects</h2>
-  <div class="projects-grid">
-    @for(project of projects; track $index) {
-    <div class="project-card">
-      <img
-        [src]="project.image"
-        alt="{{ project.title }}"
-        class="project-img"
-      />
-      <div class="project-content">
-        <h3>{{ project.title }}</h3>
-        <div class="tech-stack">
-          @for (tech of project.tech; track $index) {<span>{{ tech }}</span
-          >}
-        </div>
-        <p>{{ project.description }}</p>
-        <div class="project-links">
-          <a [href]="project.live" target="_blank" class="btn">Live Demo</a>
-          <a [href]="project.github" target="_blank" class="btn btn-outline"
-            >GitHub</a
-          >
+  <div class="projects_con">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      @for(project of projects; track $index) {
+      <div class="project-card">
+        <img
+          [src]="project.image"
+          alt="{{ project.title }}"
+          class="project-img"
+        />
+        <div class="project-content">
+          <h3>{{ project.title }}</h3>
+          <div class="tech-stack">
+            @for (tech of project.tech; track $index) {<span>{{ tech }}</span
+            >}
+          </div>
+          <p>{{ project.description }}</p>
+          <div class="project-links">
+            <a [href]="project.live" target="_blank" class="btn">Live Demo</a>
+            <a [href]="project.github" target="_blank" class="btn btn-outline"
+              >GitHub</a
+            >
+          </div>
         </div>
       </div>
+      }
     </div>
-    }
   </div>
 </section>
