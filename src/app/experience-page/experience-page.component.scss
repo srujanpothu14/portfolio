@@ -83,3 +83,13 @@
     }
   }
 }
+@media (max-width: 480px) {
+  .timeline-container {
+    .work_exp_con {
+      width: 90%;
+    }
+    .experience-card {
+      width: 80%;
+    }
+  }
+}

@@ -4,8 +4,8 @@
 
   .section-title {
     font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #222;
+    font-weight: bold;
+    color: #333;
   }
 
   .projects-grid {
@@ -99,6 +99,20 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 0rem 0rem;
+
+    .section-title {
+      font-size: 1.2rem;
+    }
+
+    .project-card {
+      max-width: 100%;
     }
   }
 }
