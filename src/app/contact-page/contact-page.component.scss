@@ -1,11 +1,17 @@
-.contact_con {
-  height: 100vh;
+.contact_page {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
+.contact_con {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact-container {
   max-width: 400px;
-  margin: auto;
   text-align: center;
   padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);

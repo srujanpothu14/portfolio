@@ -10,7 +10,13 @@
 }
 .about_me {
   p {
+    text-align: justify;
     margin: 4rem;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
   }
 
   width: 80%;
@@ -21,14 +27,17 @@
 
 @media (max-width: 480px) {
   .about_me_con {
-    height: 100%;
+    height: 65vh;
     font-size: 14px;
     line-height: 30px;
-    margin-bottom: 24px;
   }
   .about_me {
+    width: 90%;
     p {
-      margin: 1rem;
+      margin: 1.6rem;
+    }
+    h2 {
+      font-size: 1.5rem;
     }
   }
 }

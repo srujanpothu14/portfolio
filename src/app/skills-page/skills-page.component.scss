@@ -1,16 +1,24 @@
+.skills_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
 .skills_con {
-  height: 100%;
+  background-color: white;
+  width: 80%;
+  border-radius: 3.2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .skills-title {
-  padding-top: 20px;
   text-align: center;
   margin-bottom: 30px;
 }
-
-.skills-title h2 {
+h2 {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
+  margin: 0px;
 }
 
 .skills-container {
@@ -50,10 +58,19 @@
   text-align: center;
 }
 @media (max-width: 480px) {
+  .skills_con {
+    width: 90%;
+    margin: 2rem 0rem;
+    h2 {
+      font-size: 1.5rem;
+      margin: 20px 0px;
+    }
+  }
   .skill-card {
     height: 80px;
     width: 74px;
     padding: 14px;
+    border-radius: 2rem;
   }
   .skill-logo {
     height: 50px;
@@ -63,6 +80,6 @@
     margin-bottom: 0px;
   }
   .skills-container {
-    padding: 10px 0px;
+    padding: 20px;
   }
 }
