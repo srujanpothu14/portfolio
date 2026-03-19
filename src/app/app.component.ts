@@ -34,7 +34,9 @@ export class AppComponent {
   currentId: string | null = null;
   tabContainerHeight: number = 70;
   isSticky: boolean = false;
+  isMobileNavOpen: boolean = false;
   currentTab: HTMLElement | null = null;
+  private readonly mobileBreakpoint = 768;
 
   constructor(
     private el: ElementRef,
@@ -42,6 +44,7 @@ export class AppComponent {
   ) {}
 
   ngAfterViewInit() {
+    this.refreshTabContainerHeight();
     this.onScroll(); // Initial scroll check
   }
 
@@ -53,24 +56,76 @@ export class AppComponent {
 
   @HostListener('window:resize')
   onResize() {
+    this.refreshTabContainerHeight();
+
+    if (window.innerWidth > this.mobileBreakpoint && this.isMobileNavOpen) {
+      this.isMobileNavOpen = false;
+    }
+
     if (this.currentTab) {
       this.setSliderCss();
     }
   }
 
+  toggleMobileNav() {
+    this.isMobileNavOpen = !this.isMobileNavOpen;
+    this.refreshTabContainerHeight();
+  }
+
   onTabClick(event: Event) {
     event.preventDefault();
-    const target = event.target as HTMLElement; // Cast event.target to HTMLElement
+    const target = (event.currentTarget || event.target) as HTMLElement;
     const sectionId = target.getAttribute('href')?.substring(1);
     const section = document.getElementById(sectionId || '');
+
     if (section) {
-      const scrollTop = section.offsetTop - this.tabContainerHeight + 1;
+      const isMobile = window.innerWidth <= this.mobileBreakpoint;
+      const scrollTop =
+        section.offsetTop - this.tabContainerHeight - (isMobile ? 8 : 2);
+
       window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+
+      if (isMobile && this.isMobileNavOpen) {
+        this.isMobileNavOpen = false;
+        this.refreshTabContainerHeight();
+      }
     }
+  }
+
+  private refreshTabContainerHeight() {
+    const tabContainer = this.el.nativeElement.querySelector(
+      '.et-hero-tabs-container',
+    ) as HTMLElement | null;
+
+    if (!tabContainer) {
+      return;
+    }
+
+    this.tabContainerHeight = Math.max(
+      tabContainer.getBoundingClientRect().height,
+      48,
+    );
   }
 
   checkTabContainerPosition() {
     const tabContainer = this.el.nativeElement.querySelector('.et-hero-tabs');
+    const navContainer = this.el.nativeElement.querySelector(
+      '.et-hero-tabs-container',
+    );
+
+    if (!tabContainer || !navContainer) {
+      return;
+    }
+
+    // On mobile we keep the nav in document flow to avoid capturing vertical swipe scroll.
+    if (window.innerWidth <= this.mobileBreakpoint) {
+      this.isSticky = false;
+      this.renderer.removeClass(navContainer, 'et-hero-tabs-container--top');
+      return;
+    }
+
+    this.refreshTabContainerHeight();
+
     const offset =
       tabContainer.offsetTop +
       tabContainer.offsetHeight -
@@ -78,16 +133,10 @@ export class AppComponent {
 
     if (window.scrollY + 12 > offset) {
       this.isSticky = true;
-      this.renderer.addClass(
-        this.el.nativeElement.querySelector('.et-hero-tabs-container'),
-        'et-hero-tabs-container--top',
-      );
+      this.renderer.addClass(navContainer, 'et-hero-tabs-container--top');
     } else {
       this.isSticky = false;
-      this.renderer.removeClass(
-        this.el.nativeElement.querySelector('.et-hero-tabs-container'),
-        'et-hero-tabs-container--top',
-      );
+      this.renderer.removeClass(navContainer, 'et-hero-tabs-container--top');
     }
   }
 
@@ -124,7 +173,7 @@ export class AppComponent {
   }
 
   setSliderCss() {
-    if (this.currentTab) {
+    if (this.currentTab && this.slider?.nativeElement) {
       const tabWidth = this.currentTab.offsetWidth;
       const tabLeft = this.currentTab.offsetLeft;
       const sliderWidth = this.slider.nativeElement.offsetWidth;
@@ -134,6 +183,18 @@ export class AppComponent {
 
       this.slider.nativeElement.style.left = `${left}px`;
       this.slider.nativeElement.style.opacity = `1`;
+
+      const tabContainer = this.el.nativeElement.querySelector(
+        '.et-hero-tabs-container',
+      ) as HTMLElement | null;
+
+      if (
+        tabContainer &&
+        window.innerWidth > this.mobileBreakpoint &&
+        window.innerWidth <= 900
+      ) {
+        this.currentTab.scrollIntoView({ inline: 'center', block: 'nearest' });
+      }
     }
   }
 }

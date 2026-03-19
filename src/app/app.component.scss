@@ -7,6 +7,7 @@ $tab-height: 64px;
 
 .portfolio-shell {
   width: 100%;
+  touch-action: pan-y;
 }
 
 .et-slide {
@@ -22,6 +23,68 @@ $tab-height: 64px;
   display: flex;
   justify-content: center;
   padding-top: 0.8rem;
+  min-height: calc($tab-height + 0.8rem);
+}
+
+.et-nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: min(94%, 420px);
+  height: 48px;
+  margin: 0 auto 10px;
+  padding: 0 1rem;
+  border: 1px solid rgba(47, 128, 237, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a3350;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01rem;
+  box-shadow: 0 8px 20px rgba(26, 51, 80, 0.13);
+}
+
+.et-nav-toggle__icon {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  background: #1a3350;
+  transition: transform 0.25s ease;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 14px;
+    height: 2px;
+    background: #1a3350;
+    transition:
+      transform 0.25s ease,
+      top 0.25s ease;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    top: 5px;
+  }
+
+  &--open {
+    background: transparent;
+
+    &::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 .et-hero-tabs-container {
@@ -40,6 +103,7 @@ $tab-height: 64px;
   transition: position 0.3s ease;
   border-radius: 50px;
   overflow-x: auto;
+  scroll-behavior: smooth;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
@@ -67,10 +131,15 @@ $tab-height: 64px;
   border-radius: 50px;
 
   &:hover {
-    color: #fff;
-    background: rgba($primary-color, 0.9);
+    color: #1a3350;
+    background: rgba(47, 128, 237, 0.12);
     transition: all 0.5s ease;
     border-radius: 50px;
+  }
+
+  &--active {
+    color: #fff;
+    background: rgba($primary-color, 0.9);
   }
 }
 
@@ -110,32 +179,90 @@ $tab-height: 64px;
   .et-slide {
     padding: 0.75rem 0 1.2rem;
   }
+
+  .et-hero-tab {
+    min-width: 96px;
+    padding: 0 0.55rem;
+    font-size: 0.82rem;
+  }
 }
 
-@media (max-width: 480px) {
-  .et-hero-tabs,
-  .et-slide {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 768px) {
+  .et-hero-tabs {
+    min-height: auto;
+    display: block;
   }
+
+  .et-nav-toggle {
+    display: flex;
+    position: fixed;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 14px;
+    left: auto;
+    width: 56px;
+    height: 56px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    z-index: 1200;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 16px 28px rgba(26, 51, 80, 0.28);
+  }
+
   .et-hero-tabs-container {
-    width: 96%;
-    height: 48px;
-    border-radius: 28px;
-    margin-bottom: 16px;
+    position: fixed;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    right: 14px;
+    left: auto;
+    width: min(88vw, 320px);
+    max-height: 0;
+    height: auto;
+    margin: 0;
+    border-radius: 22px;
+    overflow-y: auto;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(8px);
+    flex-direction: column;
+    z-index: 1190;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      padding 0.35s ease,
+      box-shadow 0.35s ease;
+
+    &--open {
+      max-height: min(70vh, 420px);
+      padding: 0.35rem;
+      pointer-events: auto;
+      touch-action: pan-y;
+      opacity: 1;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(26, 51, 80, 0.18);
+    }
+
     &--top {
-      top: 12px;
+      position: fixed;
     }
   }
+
   .et-hero-tab {
-    min-width: 74px;
-    font-size: 0.72rem;
-    letter-spacing: 0.01rem;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: 44px;
+    min-width: 0;
+    padding: 0 0.9rem;
+    font-size: 0.9rem;
+    border-radius: 14px;
   }
 
   .et-hero-tab-slider {
-    width: 42px;
+    display: none;
+  }
+
+  .et-slide {
+    padding: 0.9rem 0 1.2rem;
   }
 }

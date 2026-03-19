@@ -1,32 +1,72 @@
 <div class="portfolio-shell">
   <section class="et-hero-tabs">
     <app-intro-page></app-intro-page>
-    <div class="et-hero-tabs-container">
-      <a class="et-hero-tab" href="#about_page" (click)="onTabClick($event)"
+    <button
+      class="et-nav-toggle"
+      type="button"
+      aria-controls="primary-nav"
+      aria-label="Open navigation menu"
+      [attr.aria-expanded]="isMobileNavOpen"
+      (click)="toggleMobileNav()"
+    >
+      <span
+        class="et-nav-toggle__icon"
+        [class.et-nav-toggle__icon--open]="isMobileNavOpen"
+      ></span>
+    </button>
+
+    <div
+      id="primary-nav"
+      class="et-hero-tabs-container"
+      [class.et-hero-tabs-container--open]="isMobileNavOpen"
+    >
+      <a
+        class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'about_page'"
+        href="#about_page"
+        (click)="onTabClick($event)"
         >About</a
       >
       <a
         class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'experience_page'"
         href="#experience_page"
         (click)="onTabClick($event)"
         >Experience</a
       >
-      <a class="et-hero-tab" href="#projects_page" (click)="onTabClick($event)"
+      <a
+        class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'projects_page'"
+        href="#projects_page"
+        (click)="onTabClick($event)"
         >Projects</a
       >
-      <a class="et-hero-tab" href="#skills_page" (click)="onTabClick($event)"
+      <a
+        class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'skills_page'"
+        href="#skills_page"
+        (click)="onTabClick($event)"
         >Skills</a
       >
-      <a class="et-hero-tab" href="#education_page" (click)="onTabClick($event)"
+      <a
+        class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'education_page'"
+        href="#education_page"
+        (click)="onTabClick($event)"
         >Education</a
       >
       <a
         class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'certifications_page'"
         href="#certifications_page"
         (click)="onTabClick($event)"
         >Certifications</a
       >
-      <a class="et-hero-tab" href="#contact_page" (click)="onTabClick($event)"
+      <a
+        class="et-hero-tab"
+        [class.et-hero-tab--active]="currentId === 'contact_page'"
+        href="#contact_page"
+        (click)="onTabClick($event)"
         >Contact</a
       >
 
