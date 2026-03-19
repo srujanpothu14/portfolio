@@ -28,10 +28,7 @@ export class IntroPageComponent implements AfterViewInit {
           onComplete: () => {
             // Step 3: Loop Role Animation with Smoothness
             new Typed(this.roleElement.nativeElement, {
-              strings: [
-                'Automation Test Engineer',
-                'Full-Stack Developer',
-              ],
+              strings: ['Automation Test Engineer', 'Full-Stack Developer'],
               typeSpeed: 25, // Smooth speed for typing
               backSpeed: 25, // Slightly slower for a natural erase
               backDelay: 800, // More delay before erasing
