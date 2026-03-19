@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="experience-section">
   <div class="experience-shell">
     <h2>Work Experience</h2>
@@ -19,6 +20,22 @@
             }
           </ul>
         </article>
+=======
+<div class="timeline-container">
+  <div class="work_exp_con">
+    <h2>Work Experience</h2>
+    <div class="timeline-line"></div>
+    <div class="timeline-cards">
+      @for(exp of experiences; track $index) {
+      <div class="experience-card">
+        <div class="card-content">
+          <h3>{{ exp.company }}</h3>
+          <h4>{{ exp.role }}</h4>
+          <p>{{ exp.duration }}</p>
+          <p>{{ exp.description }}</p>
+        </div>
+      </div>
+>>>>>>> 87fc2b2ceacb7f87173230c0975e3fd52071e47d
       }
     </div>
   </div>
