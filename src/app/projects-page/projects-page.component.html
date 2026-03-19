@@ -1,14 +1,7 @@
 <section class="projects-section">
-<<<<<<< HEAD
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
     @for (project of projects; track $index) {
-=======
-  <div class="projects_con">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      @for(project of projects; track $index) {
->>>>>>> 87fc2b2ceacb7f87173230c0975e3fd52071e47d
       <div class="project-card">
         <img
           [src]="project.image"
@@ -18,7 +11,6 @@
         <div class="project-content">
           <h3>{{ project.title }}</h3>
           <div class="tech-stack">
-<<<<<<< HEAD
             @for (tech of project.tech; track $index) {
               <span>{{ tech }}</span>
             }
@@ -32,25 +24,12 @@
             @if (project.live) {
               <a [href]="project.live" target="_blank" class="btn">Live Demo</a>
             }
-=======
-            @for (tech of project.tech; track $index) {<span>{{ tech }}</span
-            >}
-          </div>
-          <p>{{ project.description }}</p>
-          <div class="project-links">
-            <a [href]="project.live" target="_blank" class="btn">Live Demo</a>
->>>>>>> 87fc2b2ceacb7f87173230c0975e3fd52071e47d
             <a [href]="project.github" target="_blank" class="btn btn-outline"
               >GitHub</a
             >
           </div>
         </div>
       </div>
-<<<<<<< HEAD
     }
-=======
-      }
-    </div>
->>>>>>> 87fc2b2ceacb7f87173230c0975e3fd52071e47d
   </div>
 </section>
