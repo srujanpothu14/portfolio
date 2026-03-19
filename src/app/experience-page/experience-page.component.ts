@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './experience-page.component.scss',
 })
 export class ExperiencePageComponent {
-  experiences = [
+  readonly experiences = [
     {
       company: 'Proclink Consulting Services LLP',
       role: 'Graduate Engineer Trainee',

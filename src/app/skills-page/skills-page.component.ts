@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './skills-page.component.scss',
 })
 export class SkillsPageComponent {
-  skills = [
+  readonly skills = [
     { name: 'Angular', logo: 'assets/angular_logo.svg' },
     { name: 'React' },
     { name: 'TypeScript', logo: 'assets/typescript_logo.svg' },

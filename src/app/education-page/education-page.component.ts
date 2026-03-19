@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './education-page.component.scss',
 })
 export class EducationPageComponent {
-  education = [
+  readonly education = [
     {
       degree: 'B.Tech in Information Technology',
       institute: 'Malla Reddy Engineering College',

@@ -1,4 +1,10 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import Typed from 'typed.js';
 
 @Component({
@@ -6,28 +12,27 @@ import Typed from 'typed.js';
   templateUrl: './intro-page.component.html',
   styleUrl: './intro-page.component.scss',
 })
-export class IntroPageComponent implements AfterViewInit {
+export class IntroPageComponent implements AfterViewInit, OnDestroy {
   @ViewChild('name') nameElement!: ElementRef;
   @ViewChild('imA') imAElement!: ElementRef;
   @ViewChild('role') roleElement!: ElementRef;
-
-  constructor() {}
+  private typedInstances: Typed[] = [];
 
   ngAfterViewInit() {
     // Step 1: Animate Name with Smooth Typing
-    new Typed(this.nameElement.nativeElement, {
+    const nameTyped = new Typed(this.nameElement.nativeElement, {
       strings: ['Srujan Pothu'],
       typeSpeed: 60, // Smooth speed
       showCursor: false,
       onComplete: () => {
         // Step 2: Animate "I'm a " smoothly
-        new Typed(this.imAElement.nativeElement, {
+        const phraseTyped = new Typed(this.imAElement.nativeElement, {
           strings: ["I'm a "],
           typeSpeed: 50, // Slower for smooth effect
           showCursor: false,
           onComplete: () => {
             // Step 3: Loop Role Animation with Smoothness
-            new Typed(this.roleElement.nativeElement, {
+            const roleTyped = new Typed(this.roleElement.nativeElement, {
               strings: ['Automation Test Engineer', 'Full-Stack Developer'],
               typeSpeed: 25, // Smooth speed for typing
               backSpeed: 25, // Slightly slower for a natural erase
@@ -39,9 +44,20 @@ export class IntroPageComponent implements AfterViewInit {
               fadeOutClass: 'typed-fade-out',
               fadeOutDelay: 200, // Controls fade speed
             });
+
+            this.typedInstances.push(roleTyped);
           },
         });
+
+        this.typedInstances.push(phraseTyped);
       },
     });
+
+    this.typedInstances.push(nameTyped);
+  }
+
+  ngOnDestroy() {
+    this.typedInstances.forEach((instance) => instance.destroy());
+    this.typedInstances = [];
   }
 }

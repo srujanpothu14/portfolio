@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './certifications-page.component.scss',
 })
 export class CertificationsPageComponent {
-  certifications = [
+  readonly certifications = [
     'Microsoft Certified Azure Fundamentals',
     'Ineuron Full Stack Java Development',
     'Path Creators Full Stack Development Internship',

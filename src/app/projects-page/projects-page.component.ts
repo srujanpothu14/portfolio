@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './projects-page.component.scss',
 })
 export class ProjectsPageComponent {
-  projects = [
+  readonly projects = [
     {
       title: 'Cross-Platform Makeup App',
       tech: ['Ionic', 'Angular', 'Node.js', 'MongoDB'],
