@@ -29,7 +29,6 @@ export class IntroPageComponent implements AfterViewInit {
             // Step 3: Loop Role Animation with Smoothness
             new Typed(this.roleElement.nativeElement, {
               strings: [
-                'Associate Software Engineer',
                 'Automation Test Engineer',
                 'Full-Stack Developer',
               ],
