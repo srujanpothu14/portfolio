@@ -1,34 +1,40 @@
 .about_me_con {
   display: flex;
   justify-content: center;
-  height: 91vh;
+  min-height: auto;
   flex-direction: column;
-  font-weight: 100;
-  font-size: 24px;
-  line-height: 55px;
   align-items: center;
+  padding: 2rem 1rem;
 }
+
 .about_me {
-  p {
-    margin: 4rem;
-  }
+  width: min(1080px, 92vw);
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #dceafd;
 
-  width: 80%;
-  background: #fff;
-  border-radius: 3.2rem;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  p {
+    margin: 0;
+    padding: clamp(1.2rem, 2.5vw, 2.2rem);
+    font-size: clamp(1rem, 1.35vw, 1.23rem);
+    line-height: 1.9;
+    color: var(--ink-700);
+    text-align: left;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .about_me_con {
-    height: 100%;
-    font-size: 14px;
-    line-height: 30px;
-    margin-bottom: 24px;
+    padding: 1rem;
+    margin-bottom: 1rem;
   }
+
   .about_me {
+    border-radius: 1.4rem;
+
     p {
-      margin: 1rem;
+      line-height: 1.65;
     }
   }
 }

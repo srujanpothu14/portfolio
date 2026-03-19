@@ -1,20 +1,27 @@
-$primary-color: #66b1f1;
-$tab-height: 65px;
-body {
-  font-family: "Century Gothic", "Lato", sans-serif;
+$primary-color: #2f80ed;
+$tab-height: 64px;
+
+:host {
+  display: block;
+}
+
+.portfolio-shell {
+  width: 100%;
 }
 
 .et-slide {
   position: relative;
-  background: #eee;
+  background: transparent;
   text-align: center;
+  padding: 1.2rem 0 1.8rem;
 }
 .et-hero-tabs {
   position: relative;
-  background: #eee;
+  background: transparent;
   text-align: center;
   display: flex;
   justify-content: center;
+  padding-top: 0.8rem;
 }
 
 .et-hero-tabs-container {
@@ -24,14 +31,24 @@ body {
   bottom: 0;
   width: 80%;
   height: $tab-height;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  max-width: 1040px;
+  box-shadow: 0 12px 24px rgba(37, 74, 112, 0.14);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(47, 128, 237, 0.16);
   z-index: 10;
   transition: position 0.3s ease;
   border-radius: 50px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &--top {
     position: fixed;
-    top: 20px;
+    top: 14px;
   }
 }
 
@@ -39,17 +56,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
+  flex: 1 0 auto;
+  min-width: 110px;
   color: #000;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.03rem;
   transition: all 0.5s ease;
-  font-size: 0.8rem;
+  font-size: 0.92rem;
+  font-weight: 500;
   text-decoration: none;
   border-radius: 50px;
 
   &:hover {
-    color: white;
-    background: rgba($primary-color, 0.8);
+    color: #fff;
+    background: rgba($primary-color, 0.9);
     transition: all 0.5s ease;
     border-radius: 50px;
   }
@@ -59,7 +78,7 @@ body {
   position: absolute;
   bottom: 5px;
   width: 50px;
-  height: 6px;
+  height: 5px;
   border-radius: 10px;
   background: $primary-color;
   transition: left 0.3s ease;
@@ -78,9 +97,21 @@ body {
   }
 
   .et-hero-tab {
-    font-size: 1rem;
+    font-size: 0.97rem;
   }
 }
+
+@media (max-width: 900px) {
+  .et-hero-tabs-container {
+    width: 92%;
+    max-width: none;
+  }
+
+  .et-slide {
+    padding: 0.75rem 0 1.2rem;
+  }
+}
+
 @media (max-width: 480px) {
   .et-hero-tabs,
   .et-slide {
@@ -91,15 +122,20 @@ body {
   }
   .et-hero-tabs-container {
     width: 96%;
-    height: 45px;
-    border-radius: 30px;
-    margin-bottom: 22px;
+    height: 48px;
+    border-radius: 28px;
+    margin-bottom: 16px;
     &--top {
-      top: 30px;
+      top: 12px;
     }
   }
   .et-hero-tab {
-    font-size: 11px;
-    letter-spacing: 0.04rem;
+    min-width: 74px;
+    font-size: 0.72rem;
+    letter-spacing: 0.01rem;
+  }
+
+  .et-hero-tab-slider {
+    width: 42px;
   }
 }

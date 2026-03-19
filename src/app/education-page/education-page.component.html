@@ -1,0 +1,14 @@
+<section class="education-section">
+  <div class="education-card-wrap">
+    <h2>Education</h2>
+    <div class="education-list">
+      @for (item of education; track $index) {
+        <article class="education-card">
+          <h3>{{ item.degree }}</h3>
+          <p class="institute">{{ item.institute }}</p>
+          <p class="meta">{{ item.score }} | {{ item.duration }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

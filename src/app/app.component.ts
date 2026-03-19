@@ -11,6 +11,8 @@ import { ProjectsPageComponent } from './projects-page/projects-page.component';
 import { SkillsPageComponent } from './skills-page/skills-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { IntroPageComponent } from './intro-page/intro-page.component';
+import { EducationPageComponent } from './education-page/education-page.component';
+import { CertificationsPageComponent } from './certifications-page/certifications-page.component';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +23,8 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
     ExperiencePageComponent,
     ProjectsPageComponent,
     SkillsPageComponent,
+    EducationPageComponent,
+    CertificationsPageComponent,
     ContactPageComponent,
     IntroPageComponent,
   ],
@@ -32,19 +36,22 @@ export class AppComponent {
   isSticky: boolean = false;
   currentTab: HTMLElement | null = null;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+  ) {}
 
   ngAfterViewInit() {
     this.onScroll(); // Initial scroll check
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onScroll() {
     this.checkTabContainerPosition();
     this.findCurrentTabSelector();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     if (this.currentTab) {
       this.setSliderCss();
@@ -73,13 +80,13 @@ export class AppComponent {
       this.isSticky = true;
       this.renderer.addClass(
         this.el.nativeElement.querySelector('.et-hero-tabs-container'),
-        'et-hero-tabs-container--top'
+        'et-hero-tabs-container--top',
       );
     } else {
       this.isSticky = false;
       this.renderer.removeClass(
         this.el.nativeElement.querySelector('.et-hero-tabs-container'),
-        'et-hero-tabs-container--top'
+        'et-hero-tabs-container--top',
       );
     }
   }

@@ -1,16 +1,25 @@
-<div class="timeline-container">
-  <h2>Work Experience</h2>
-  <div class="timeline-line"></div>
-  <div class="timeline-cards">
-    @for(exp of experiences; track $index) {
-    <div class="experience-card">
-      <div class="card-content">
-        <h3>{{ exp.company }}</h3>
-        <h4>{{ exp.role }}</h4>
-        <p>{{ exp.duration }}</p>
-        <p>{{ exp.description }}</p>
-      </div>
+<section class="experience-section">
+  <div class="experience-shell">
+    <h2>Work Experience</h2>
+
+    <div class="experience-list">
+      @for (exp of experiences; track $index) {
+        <article class="experience-card">
+          <div class="card-top">
+            <div>
+              <h3>{{ exp.role }}</h3>
+              <h4>{{ exp.company }}</h4>
+            </div>
+            <span class="duration">{{ exp.duration }}</span>
+          </div>
+
+          <ul class="highlights">
+            @for (point of exp.points; track $index) {
+              <li>{{ point }}</li>
+            }
+          </ul>
+        </article>
+      }
     </div>
-    }
   </div>
-</div>
+</section>

@@ -1,10 +1,9 @@
-<body>
+<div class="portfolio-shell">
   <section class="et-hero-tabs">
     <app-intro-page></app-intro-page>
     <div class="et-hero-tabs-container">
-      <!-- Updated onTabClick with event binding -->
       <a class="et-hero-tab" href="#about_page" (click)="onTabClick($event)"
-        >About me</a
+        >About</a
       >
       <a
         class="et-hero-tab"
@@ -18,8 +17,17 @@
       <a class="et-hero-tab" href="#skills_page" (click)="onTabClick($event)"
         >Skills</a
       >
+      <a class="et-hero-tab" href="#education_page" (click)="onTabClick($event)"
+        >Education</a
+      >
+      <a
+        class="et-hero-tab"
+        href="#certifications_page"
+        (click)="onTabClick($event)"
+        >Certifications</a
+      >
       <a class="et-hero-tab" href="#contact_page" (click)="onTabClick($event)"
-        >Contact me ?</a
+        >Contact</a
       >
 
       <span class="et-hero-tab-slider" #slider></span>
@@ -40,8 +48,14 @@
     <section class="et-slide" id="skills_page">
       <app-skills-page></app-skills-page>
     </section>
+    <section class="et-slide" id="education_page">
+      <app-education-page></app-education-page>
+    </section>
+    <section class="et-slide" id="certifications_page">
+      <app-certifications-page></app-certifications-page>
+    </section>
     <section class="et-slide" id="contact_page">
       <app-contact-page></app-contact-page>
     </section>
   </main>
-</body>
+</div>

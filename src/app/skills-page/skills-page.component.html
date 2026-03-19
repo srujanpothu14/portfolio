@@ -4,11 +4,19 @@
   </div>
 
   <div class="skills-container">
-    @for(skill of skills ;track skill) {
-    <div class="skill-card">
-      <img [src]="skill.logo" alt="{{ skill.name }} logo" class="skill-logo" />
-      <h3 class="skill-title">{{ skill.name }}</h3>
-    </div>
+    @for (skill of skills; track skill) {
+      <div class="skill-card">
+        @if (skill.logo) {
+          <img
+            [src]="skill.logo"
+            alt="{{ skill.name }} logo"
+            class="skill-logo"
+          />
+        } @else {
+          <div class="skill-logo-placeholder">{{ skill.name.charAt(0) }}</div>
+        }
+        <h3 class="skill-title">{{ skill.name }}</h3>
+      </div>
     }
   </div>
 </div>

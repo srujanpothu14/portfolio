@@ -1,0 +1,51 @@
+.certifications-section {
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.certifications-card-wrap {
+  width: min(1080px, 92vw);
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  border: 1px solid #dceafd;
+  box-shadow: var(--shadow-lg);
+  padding: 2rem;
+
+  h2 {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    color: var(--ink-900);
+    text-align: center;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    text-align: left;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  li {
+    color: var(--ink-700);
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: 1rem;
+  }
+
+  .certifications-card-wrap {
+    width: 96vw;
+    border-radius: 1.4rem;
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.6rem;
+    }
+  }
+}
